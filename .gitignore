@@ -1,0 +1,25 @@
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+
+# OS or Editor folders
+.cache
+.project
+.settings
+.idea
+
+# Vagrant
+.vagrant/
+
+# Custom ignored folder
+pkg/
+github/
+private/
+

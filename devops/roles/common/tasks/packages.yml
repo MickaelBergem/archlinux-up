@@ -1,0 +1,36 @@
+---
+# basic system packages installation
+
+#- name: pacman - update
+#  pacman: update=yes
+
+- name: pacman - install basic system packages
+  pacman: name={{item}} state=installed
+  with_items:
+#    - base
+#    - base-devel
+    - curl
+    - git
+    - htop
+    - rsync
+    - sed
+    - sudo
+    - tree
+    - tmux
+    - vim
+    - wget
+
+- name: pacman - install development tools
+  pacman: name={{item}} state=installed
+  with_items:
+    - nodejs
+
+#- name: pacman - install graphical environment
+#  pacman: name={{item}} state=installed update-cache=yes
+#  with_items:
+#    - gnome
+
+#- name: pacman - install graphical tools
+#  pacman: name={{item}} state=installed
+#  with_items:
+#    - chromium
