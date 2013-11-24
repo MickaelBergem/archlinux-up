@@ -20,6 +20,6 @@
 
 # Custom ignored folder
 pkg/
-github/
+project/
 private/
 

@@ -10,8 +10,10 @@
 #    - base
 #    - base-devel
     - curl
+    - dos2unix
     - git
     - htop
+    - mlocate
     - rsync
     - sed
     - sudo
@@ -19,18 +21,41 @@
     - tmux
     - vim
     - wget
+#    - z
+    - zsh
 
 - name: pacman - install development tools
   pacman: name={{item}} state=installed
   with_items:
     - nodejs
 
-#- name: pacman - install graphical environment
-#  pacman: name={{item}} state=installed update-cache=yes
-#  with_items:
-#    - gnome
+- name: npm - install global packages
+  npm: name={{item}} global=yes
+  with_items:
+    - coffee-script
+    - brunch
+    - bower
+    - jade
+    - glob
 
-#- name: pacman - install graphical tools
-#  pacman: name={{item}} state=installed
-#  with_items:
-#    - chromium
+#- name: git - clone networqi-web repo
+#  git: repo=ssh://git@bitbucket.org:vbrajon/networqi-web.git dest=/vagrant/project/networqi-web
+
+- name: pacman - install graphical environment
+  pacman: name={{item}} state=installed
+  with_items:
+    - xorg-server
+    - xorg-server-utils
+    - xorg-xinit
+    - ttf-inconsolata
+    - bdf-unifont
+    - ttf-dejavu
+    - ttf-freefont
+    - ttf-bitstream-vera
+    - ttf-liberation
+    - gnome
+
+- name: pacman - install graphical tools
+  pacman: name={{item}} state=installed
+  with_items:
+    - chromium

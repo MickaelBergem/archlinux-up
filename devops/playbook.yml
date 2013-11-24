@@ -1,6 +1,10 @@
 ---
 - name: install common environment
   hosts: all
+  vars:
+    ansible_connection: local
+    ansible_python_interpreter: /usr/bin/python2
+    home_directory: /home/$username
   sudo: yes
   gather_facts: true
   roles:

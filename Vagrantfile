@@ -10,6 +10,14 @@ Vagrant.configure('2') do |config|
   config.ssh.forward_agent = true
   # config.vm.synced_folder "../data", "/vagrant_data"
   
+  config.vm.provider "virtualbox" do |v|
+    v.name = "archlinux64"
+    v.gui = true
+    v.customize ["modifyvm", :id, "--cpuexecutioncap", 100]
+    v.customize ["modifyvm", :id, "--memory", 2048]
+    v.customize ["modifyvm", :id, "--cpus", 2]
+  end
+  
   config.vm.provision :shell do |shell|
     shell.path = "devops/ansible.sh"
     shell.args = ""

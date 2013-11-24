@@ -1,4 +1,6 @@
 ---
 # wrapper for common tasks
 
+- include: users.yml
 - include: packages.yml
+- include: config.yml

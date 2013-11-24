@@ -2,19 +2,22 @@
 #
 set -x
 
-## Install Puppet if not in the basebox already
+## Move into shared directory if it exists
+ls /vagrant && cd /vagrant
+
+## Install Ansible if it is absent
 if !(which ansible;) then
-    pacman -Syu --no-confirm base-devel fakeroot jshon wget git expac
-    mkdir /vagrant/pkg && cd /vagrant/pkg
-    wget https://aur.archlinux.org/packages/pa/packer/PKGBUILD
-    makepkg
-    pacman -U packer-*.pkg.tar.xz
+    pacman -Syu --noconfirm --needed base-devel fakeroot jshon wget git expac
+    ls pkg || mkdir pkg && cd pkg
+    ls PKGBUILD || wget https://aur.archlinux.org/packages/pa/packer/PKGBUILD
+    ls packer-*.pkg.tar.xz || makepkg --asroot
+    pacman -U packer-*.pkg.tar.xz --noconfirm --needed
     mv /usr/bin/packer /usr/bin/p
     p -S ansible --noconfirm --noedit
-    echo 127.0.0.1 > /etc/ansible/hosts ansible_python_interpreter=/usr/bin/python2
+    echo 127.0.0.1 > /etc/ansible/hosts
 fi
 
 ## Run ansible provisionning on the guest
-ansible-playbook /vagrant/devops/playbook.yml --connection=local
+ansible-playbook devops/playbook.yml
 
 exit $?

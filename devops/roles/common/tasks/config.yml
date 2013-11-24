@@ -1,0 +1,21 @@
+---
+# system configuration tasks
+
+#- name: Configure pacman to not care about slow networks, firewalls, etc
+#  lineinfile: dest=/etc/pacman.conf regexp=^XferCommand line='XferCommand = /usr/bin/curl --speed-time 0 --silent -C - -f %u > %o' insertafter='^\[options\]'
+
+- name: locale.gen config
+  copy: src=etc/locale.gen dest=/etc/locale.gen
+
+- name: locale-gen
+  command: locale-gen
+
+- name: locale config
+  copy: src=etc/locale.conf dest=/etc/locale.conf
+
+- name: set-keymap
+  copy: src=etc/vconsole.conf dest=/etc/vconsole.conf
+
+- name: set xorg keyboard settings
+  copy: src=etc/X11/xorg.conf.d/10-evdev.conf dest=/etc/X11/xorg.conf.d/10-evdev.conf
+
