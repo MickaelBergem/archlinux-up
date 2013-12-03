@@ -4,10 +4,11 @@ set -x
 
 ## Move into shared directory if it exists
 ls /vagrant && cd /vagrant
+ls /devops && cd /devops
 
 ## Install Ansible if it is absent
 if !(which ansible;) then
-    pacman -Syu --noconfirm --needed base-devel fakeroot jshon wget git expac
+    pacman -Syu --noconfirm --needed base-devel fakeroot jshon expac wget git ssh
     ls pkg || mkdir pkg && cd pkg
     ls PKGBUILD || wget https://aur.archlinux.org/packages/pa/packer/PKGBUILD
     ls packer-*.pkg.tar.xz || makepkg --asroot
@@ -18,6 +19,6 @@ if !(which ansible;) then
 fi
 
 ## Run ansible provisionning on the guest
-ansible-playbook devops/playbook.yml
+ansible-playbook playbook.yml
 
 exit $?

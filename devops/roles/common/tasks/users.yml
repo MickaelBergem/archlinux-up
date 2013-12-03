@@ -2,11 +2,11 @@
 # configure www-data user
 
 - name: create vbrajon user
-  user: name=vbrajon group=users groups=audio,games,locate,lp,network,optical,power,scanner,storage,sys,uucp,video shell=/bin/bash
+  user: name=vbrajon group=users groups=audio,games,locate,lp,network,optical,power,scanner,storage,sys,uucp,video shell=/bin/zsh
 
 - name: add vbrajon to sudoers
   copy: src=etc/sudoers.d/10-vbrajon dest=/etc/sudoers.d/10-vbrajon owner=root group=root mode=0440 validate="visudo -cf %s"
 
-- name: add own private key
-  copy: src=\~/.ssh/ dest=~/.ssh/ mode=0440
+#- name: add own private key
+#  copy: src=\~/.ssh/ dest=~/.ssh/ mode=0440
 

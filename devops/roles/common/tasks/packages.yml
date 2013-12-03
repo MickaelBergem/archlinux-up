@@ -47,15 +47,58 @@
     - xorg-server
     - xorg-server-utils
     - xorg-xinit
+    - xf86-video-intel
+    - xf86-input-synaptics
     - ttf-inconsolata
     - bdf-unifont
     - ttf-dejavu
     - ttf-freefont
     - ttf-bitstream-vera
     - ttf-liberation
-    - gnome
 
 - name: pacman - install graphical tools
   pacman: name={{item}} state=installed
   with_items:
+    - baobab
+    - empathy
+    - eog
+    - gdm
+    - gnome-backgrounds
+    - gnome-calculator
+    - gnome-contacts
+    - gnome-control-center
+    - gnome-desktop
+    - gnome-dictionary
+    - gnome-disk-utility
+    - gnome-font-viewer
+    - gnome-icon-theme
+    - gnome-icon-theme-extras
+    - gnome-icon-theme-symbolic
+    - gnome-keyring
+    - gnome-screenshot
+    - gnome-session
+    - gnome-settings-daemon
+    - gnome-shell
+    - gnome-shell-extensions
+    - gnome-system-log
+    - gnome-system-monitor
+    - gnome-terminal
+    - gnome-themes-standard
+    - gnome-user-docs
+    - gnome-user-share
+    - grilo-plugins
+    - gucharmap
+    - mousetweaks
+    - mutter
+    - nautilus
+    - sushi
+    - tracker
+    - vino
+    - xdg-user-dirs-gtk
+
+    - vlc
     - chromium
+    - jre7-openjdk
+
+- name: packer - install AUR packages
+  raw: p -S webstorm chromium-pepper-flash-stable gpaste --noconfirm --noedit
