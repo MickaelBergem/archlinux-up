@@ -1,25 +1,48 @@
 ---
 # basic system packages installation
 
-#- name: pacman - update
-#  pacman: update=yes
-
 - name: pacman - install basic system packages
   pacman: name={{item}} state=installed
   with_items:
 #    - base
 #    - base-devel
+    - ack
+    - bash-completion
+    - bzip2
+    - conky
+    - cups
     - curl
+    - dialog
+    - dnsmasq
+    - dnsutils
     - dos2unix
+    - gawk
     - git
+    - gparted
+    - hddtemp
     - htop
+    - hub
+    - irssi
+    - markdown
     - mlocate
+    - mpc
+    - mpd
+    - ncdu
+    - ncmpcpp
+    - ntfs-3g
+    - openssh
+    - p7zip
+    - pngout
+    - qsynergy
     - rsync
     - sed
     - sudo
-    - tree
     - tmux
+    - tree
+    - unrar
+    - unzip
     - vim
+    - wpa_supplicant
     - wget
 #    - z
     - zsh
@@ -27,7 +50,9 @@
 - name: pacman - install development tools
   pacman: name={{item}} state=installed
   with_items:
+    - nginx
     - nodejs
+    - couchdb
 
 - name: npm - install global packages
   npm: name={{item}} global=yes
@@ -96,9 +121,10 @@
     - vino
     - xdg-user-dirs-gtk
 
+    - gedit
     - vlc
     - chromium
     - jre7-openjdk
 
 - name: packer - install AUR packages
-  raw: p -S webstorm chromium-pepper-flash-stable gpaste --noconfirm --noedit
+  raw: p -S webstorm chromium-libpdf-stable chromium-pepper-flash-stable gpaste downgrade --noconfirm --noedit
