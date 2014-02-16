@@ -1,0 +1,19 @@
+---
+- name: pacman - install JS development tools
+  pacman: name={{item}} state=installed
+  with_items:
+    - nginx
+    - nodejs
+    - couchdb
+
+- name: npm - install global packages
+  npm: name={{item}} global=yes
+  with_items:
+    - coffee-script
+    - brunch
+    - bower
+    - jade
+    - glob
+
+#- name: git - clone networqi-web repo
+#  git: repo=ssh://git@bitbucket.org:vbrajon/networqi-web.git dest=/vagrant/project/networqi-web

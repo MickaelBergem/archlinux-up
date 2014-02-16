@@ -1,0 +1,65 @@
+---
+- name: pacman - install graphical environment
+  pacman: name={{item}} state=installed
+  with_items:
+    - xorg-server
+    - xorg-server-utils
+    - xorg-xinit
+#    - xorg-drivers
+    - xf86-video-intel
+    - ttf-inconsolata
+    - bdf-unifont
+    - ttf-dejavu
+    - ttf-freefont
+    - ttf-bitstream-vera
+    - ttf-liberation
+
+- name: pacman - install graphical tools
+  pacman: name={{item}} state=installed
+  with_items:
+    - baobab
+    - empathy
+    - eog
+    - gdm
+    - gnome-backgrounds
+    - gnome-calculator
+    - gnome-contacts
+    - gnome-control-center
+    - gnome-desktop
+    - gnome-dictionary
+    - gnome-disk-utility
+    - gnome-font-viewer
+    - gnome-icon-theme
+    - gnome-icon-theme-extras
+    - gnome-icon-theme-symbolic
+    - gnome-keyring
+    - gnome-screenshot
+    - gnome-session
+    - gnome-settings-daemon
+    - gnome-shell
+    - gnome-shell-extensions
+    - gnome-system-log
+    - gnome-system-monitor
+    - gnome-terminal
+    - gnome-themes-standard
+    - gnome-user-docs
+    - gnome-user-share
+    - grilo-plugins
+    - gucharmap
+    - mousetweaks
+    - mutter
+    - nautilus
+    - sushi
+    - tracker
+    - vino
+    - xdg-user-dirs-gtk
+
+    - gnome-tweak-tool
+    - faenza-icon-theme
+    - elementary-icon-theme
+    - faience-icon-theme
+
+    - gedit
+    - vlc
+    - chromium
+    - jre7-openjdk

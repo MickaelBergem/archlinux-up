@@ -2,5 +2,9 @@
 # wrapper for common tasks
 
 - include: users.yml
-- include: packages.yml
+- include: packages/main.yml
+- include: packages/graphical.yml
+- include: packages/dev.yml
+- include: packages/aur.yml
 - include: config.yml
+- include: services.yml

@@ -1,0 +1,48 @@
+---
+- name: pacman - install basic system packages
+  pacman: name={{item}} state=installed
+  with_items:
+#    - base
+#    - base-devel
+    - ack
+    - bash-completion
+    - bzip2
+    - conky
+    - cups
+    - curl
+    - dialog
+    - dnsmasq
+    - dnsutils
+    - dos2unix
+    - gawk
+    - git
+    - gparted
+    - hddtemp
+    - htop
+    - hub
+    - iproute2
+    - irssi
+    - markdown
+    - mlocate
+    - mpc
+    - mpd
+    - mtr
+    - ncdu
+    - ncmpcpp
+    - nmap
+    - ntfs-3g
+    - openssh
+    - p7zip
+    - qsynergy
+    - rsync
+    - sed
+    - sudo
+    - tmux
+    - tree
+    - unrar
+    - unzip
+    - vim
+    - wpa_supplicant
+    - wget
+#    - z
+    - zsh

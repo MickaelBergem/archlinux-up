@@ -1,0 +1,15 @@
+---
+# configure services
+
+- name: pacman - install NTP/NFS services
+  pacman: name={{item}} state=installed
+  with_items:
+    - ntp
+    - nfs-utils
+    - net-tools
+
+- name: Enable NTP/NFS services
+  raw: systemctl enable {{item}}
+  with_items:
+    - rpc-idmapd.service
+    - rpc-mountd.service

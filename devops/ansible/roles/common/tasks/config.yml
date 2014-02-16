@@ -19,3 +19,6 @@
 - name: set xorg keyboard settings
   copy: src=etc/X11/xorg.conf.d/10-evdev.conf dest=/etc/X11/xorg.conf.d/10-evdev.conf
 
+- name: set pacman conf
+  copy: src=etc/pacman.d/multilib.conf dest=/etc/pacman.d/multilib.conf
+

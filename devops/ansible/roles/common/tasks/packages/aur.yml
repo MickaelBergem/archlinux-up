@@ -1,0 +1,3 @@
+---
+#- name: packer - install AUR packages
+#  raw: p -S webstorm chromium-libpdf-stable chromium-pepper-flash-stable gpaste downgrade pngout --noconfirm --noedit
